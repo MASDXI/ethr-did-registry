@@ -3,7 +3,7 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import "./interfaces/IERC1056.sol";
 
-contract EthereumDIDRegistry is IERC1056 {
+contract EthrDIDRegistry is IERC1056 {
 
   mapping(address => address) public owners;
   mapping(address => mapping(bytes32 => mapping(address => uint))) public delegates;
