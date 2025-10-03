@@ -8,15 +8,15 @@ source: 'https://github.com/uport-project/ethr-did-registry/blob/develop/README.
 
 # Ethereum DID Registry
 
-This library contains the Ethereum contract code that allows the owner of an ethr-did identity to update the attributes
+This library contains the Ethereum contract code that allows the owner of an `ethr-did` identity to update the attributes
 that appear in its did-document. It exposes an API that allows developers to call the contract functions using
-Javascript.
+JavaScript.
 
 Use this if you want to interact directly with a deployed registry contract directly, or deploy a copy of the contract
 to another Ethereum network.
 
-A DID is an [Identifier](https://w3c.github.io/did-core/#a-simple-example) that allows you to lookup
-a [DID document](https://w3c.github.io/did-core/#example-a-simple-did-document) that can be used to authenticate you and
+A DID is an [Identifier](https://w3c.github.io/did/#a-simple-example) that allows you to lookup
+a [DID document](https://w3c.github.io/did/#example-a-simple-did-document) that can be used to authenticate you and
 messages created by you.
 
 It's designed for resolving public keys for off-chain authentication—where the public key resolution is handled by using
@@ -32,28 +32,28 @@ off-chain usage.
 > Most of these are deployments of version 0.0.3 of the contract and they do not include recent updates.
 > Join the discussion as to how to adopt these new changes [on our discord](https://discord.gg/MTeTAwSYe7)
 
-| Network Name          | name            | chainId    | hexChainId | Registry Address                                                                                                                       | Registry version                                                                                                  |
-|-----------------------|-----------------|------------|------------|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Mainnet               | mainnet         | 1          | 0x1        | [0xdca7...f21b](https://etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)                  | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| ~~Ropsten~~           |                 | 3          | 0x3        | [0xdca7...f21b](https://ropsten.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)          | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| ~~Rinkeby~~           |                 | 4          | 0x4        | [0xdca7...f21b](https://rinkeby.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)          | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| ~~Goerli~~            |                 | 5          | 0x5        | [0xdca7...f21b](https://goerli.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)           | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| ~~Kovan~~             |                 | 42         | 0x2a       | [0xdca7...f21b](https://kovan.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)            | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| RSK                   | rsk             | 30         | 0x1e       | [0xdca7...f21b](https://explorer.rsk.co/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)               | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| RSK Testnet           | rsk:test        | 31         | 0x1f       | [0xdca7...f21b](https://explorer.testnet.rsk.co/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)       | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| EnergyWeb             | ewc             | 246        | 0xf6       | [0xe296...bce4](https://explorer.energyweb.org/address/0xE29672f34e92b56C9169f9D485fFc8b9A136BCE4)        | [c9063836](https://github.com/uport-project/ethr-did-registry/commit/c90638361a76d247d61ef4e3eb245a78cf587f91)    |
-| EWC Volta             | volta           | 73799      | 0x12047    | [0xc15d...c4af](https://volta-explorer.energyweb.org/address/0xC15D5A57A8Eb0e1dCBE5D88B8f9a82017e5Cc4AF)  | [f4e17ee1](https://github.com/uport-project/ethr-did-registry/commit/f4e17ee1eb558c5a006bab1a04108f27d4e3f0d0)    |
-| ~~ARTIS tau1~~        |                 | 246785     | 0x3c401    | [0xdca7...f21b](https://explorer.tau1.artis.network/address/0xdCa7EF03e98e0DC2B855bE647C39ABe984fcF21B)   | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| ~~ARTIS sigma1~~      |                 | 246529     | 0x3c301    | [0xdca7...f21b](https://explorer.sigma1.artis.network/address/0xdCa7EF03e98e0DC2B855bE647C39ABe984fcF21B) | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| Polygon               | polygon         | 137        | 0x89       | [0xdca7...f21b](https://polygonscan.com/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)               | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| ~~Polygon test~~      |                 | 80001      | 0x13881    | [0xdca7...f21b](https://mumbai.polygonscan.com/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)        | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0)    |
-| Aurora                | aurora          | 1313161554 | 0x4e454152 | [0x63ed...98e0](https://explorer.mainnet.aurora.dev/address/0x63eD58B671EeD12Bc1652845ba5b2CDfBff198e0)   | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892)    |
-| ~~Arbitrum Goerli~~   |                 | 421613     | 0x66eed    | [0x8FFf...517E](https://goerli.arbiscan.io/address/0x8FFfcD6a85D29E9C33517aaf60b16FE4548f517E)            | [af1c2db](https://github.com/uport-project/ethr-did-registry/commit/af1c2db0e093507627338a6e562e0ed7c219b9ee)     |
-| ~~Linea Goerli~~      |                 | 59140      | 0xe704     | [0x03d5...3818](https://goerli.lineascan.build/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818)        | [af1c2db](https://github.com/uport-project/ethr-did-registry/commit/af1c2db0e093507627338a6e562e0ed7c219b9ee)     |
-| Sepolia               | sepolia         | 11155111   | 0xaa36a7   | [0x03d5...3818](https://sepolia.etherscan.io/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818#code)     | [af1c2db](https://github.com/uport-project/ethr-did-registry/commit/af1c2db0e093507627338a6e562e0ed7c219b9ee)     |
-| Cardona               | cardona         | 2442       | 0x98a      | [0x03d5...3818](https://cardona-zkevm.polygonscan.com/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818) | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892)    |
-| Holešky               | holesky         | 17000      | 0x4268     | [0x03d5...3818](https://holesky.etherscan.io/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818)          | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892)    |
-| Gnosis Chain          | gno             | 100        | 0x64       | [0x03d5...3818](https://gnosisscan.io/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818)                 | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892)    |
+| Network Name        | name            | chainId    | hexChainId | Registry Address                                                                                          | Registry version                                                                                               |
+| ------------------- | --------------- | ---------- | ---------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Mainnet             | mainnet         | 1          | 0x1        | [0xdca7...f21b](https://etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)                  | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| ~~Ropsten~~         | ropsten         | 3          | 0x3        | [0xdca7...f21b](https://ropsten.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)          | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| ~~Rinkeby~~         | rinkeby         | 4          | 0x4        | [0xdca7...f21b](https://rinkeby.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)          | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| ~~Goerli~~          | goerli          | 5          | 0x5        | [0xdca7...f21b](https://goerli.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)           | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| ~~Kovan~~           | kovan           | 42         | 0x2a       | [0xdca7...f21b](https://kovan.etherscan.io/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)            | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| RSK                 | rsk             | 30         | 0x1e       | [0xdca7...f21b](https://explorer.rsk.co/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)               | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| RSK Testnet         | rsk:test        | 31         | 0x1f       | [0xdca7...f21b](https://explorer.testnet.rsk.co/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)       | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| EnergyWeb           | ewc             | 246        | 0xf6       | [0xe296...bce4](https://explorer.energyweb.org/address/0xE29672f34e92b56C9169f9D485fFc8b9A136BCE4)        | [c9063836](https://github.com/uport-project/ethr-did-registry/commit/c90638361a76d247d61ef4e3eb245a78cf587f91) |
+| EWC Volta           | volta           | 73799      | 0x12047    | [0xc15d...c4af](https://volta-explorer.energyweb.org/address/0xC15D5A57A8Eb0e1dCBE5D88B8f9a82017e5Cc4AF)  | [f4e17ee1](https://github.com/uport-project/ethr-did-registry/commit/f4e17ee1eb558c5a006bab1a04108f27d4e3f0d0) |
+| ~~ARTIS tau1~~      |                 | 246785     | 0x3c401    | [0xdca7...f21b](https://explorer.tau1.artis.network/address/0xdCa7EF03e98e0DC2B855bE647C39ABe984fcF21B)   | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| ~~ARTIS sigma1~~    |                 | 246529     | 0x3c301    | [0xdca7...f21b](https://explorer.sigma1.artis.network/address/0xdCa7EF03e98e0DC2B855bE647C39ABe984fcF21B) | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| Polygon             | polygon         | 137        | 0x89       | [0xdca7...f21b](https://polygonscan.com/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)               | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| ~~Polygon test~~    |                 | 80001      | 0x13881    | [0xdca7...f21b](https://mumbai.polygonscan.com/address/0xdca7ef03e98e0dc2b855be647c39abe984fcf21b)        | [4278342e](https://github.com/uport-project/ethr-did-registry/commit/4278342e9b1dec0ab4fd63f4bd5536094c4de9f0) |
+| Aurora              | aurora          | 1313161554 | 0x4e454152 | [0x63ed...98e0](https://explorer.mainnet.aurora.dev/address/0x63eD58B671EeD12Bc1652845ba5b2CDfBff198e0)   | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892) |
+| ~~Arbitrum Goerli~~ | arbitrum:goerli | 421613     | 0x66eed    | [0x8FFf...517E](https://goerli.arbiscan.io/address/0x8FFfcD6a85D29E9C33517aaf60b16FE4548f517E)            | [af1c2db](https://github.com/uport-project/ethr-did-registry/commit/af1c2db0e093507627338a6e562e0ed7c219b9ee)  |
+| ~~Linea Goerli~~    | linea:goerli    | 59140      | 0xe704     | [0x03d5...3818](https://goerli.lineascan.build/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818)        | [af1c2db](https://github.com/uport-project/ethr-did-registry/commit/af1c2db0e093507627338a6e562e0ed7c219b9ee)  |
+| Sepolia             | sepolia         | 11155111   | 0xaa36a7   | [0x03d5...3818](https://sepolia.etherscan.io/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818#code)     | [af1c2db](https://github.com/uport-project/ethr-did-registry/commit/af1c2db0e093507627338a6e562e0ed7c219b9ee)  |
+| ~~Cardona~~         | cardona         | 2442       | 0x98a      | [0x03d5...3818](https://cardona-zkevm.polygonscan.com/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818) | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892) |
+| Holešky             | holesky         | 17000      | 0x4268     | [0x03d5...3818](https://holesky.etherscan.io/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818)          | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892) |
+| Gnosis Chain        | gno             | 100        | 0x64       | [0x03d5...3818](https://gnosisscan.io/address/0x03d5003bf0e79c5f5223588f347eba39afbc3818)                 | [0ab4f151](https://github.com/uport-project/ethr-did-registry/commit/0ab4f151ddde5b7739b97827c4fb901289f57892) |
 
 ## Using the Registry
 
@@ -152,7 +152,7 @@ Validity is set using the number of seconds from the time that adding the delega
 
 You can check to see if an address is a delegate for an identity using
 the`validDelegate(address identity, bytes32 delegateType, address delegate) returns(bool)` function. This returns true
-if the address is a valid delegate of the given delegateType.
+if the address is a valid delegate of the given `delegateType`.
 
 ### Adding a Delegate
 
@@ -168,7 +168,7 @@ The externally signed version has the following
 signature `addDelegateSigned(address identity, uint8 sigV, bytes32 sigR, bytes32 sigS, bytes32 delegateType, address delegate, uint validity)`
 .
 
-The signature should be signed of the keccak256 hash of the following tightly packed parameters:
+The signature should be signed of the `keccak256` hash of the following tightly packed parameters:
 
 `byte(0x19), byte(0), address of registry, nonce[currentOwner], identity, "addDelegate", delegateType, delegate, validity`
 
@@ -184,7 +184,7 @@ The externally signed version has the following
 signature `revokeDelegateSigned(address identity, uint8 sigV, bytes32 sigR, bytes32 sigS, bytes32 delegateType, address delegate)`
 .
 
-The signature should be signed of the keccak256 hash of the following tightly packed parameters:
+The signature should be signed of the `keccak256` hash of the following tightly packed parameters:
 
 `byte(0x19), byte(0), address of registry, nonce[currentOwner], identity, "revokeDelegate", delegateType, delegate`
 
@@ -219,7 +219,7 @@ The externally signed version has the following
 signature `setAttributeSigned(address identity, uint8 sigV, bytes32 sigR, bytes32 sigS, bytes32 name, bytes value, uint validity)`
 .
 
-The signature should be signed off the keccak256 hash of the following tightly packed parameters:
+The signature should be signed off the `keccak256` hash of the following tightly packed parameters:
 
 `byte(0x19), byte(0), address of registry, nonce[currentOwner], identity, "setAttribute", name, value, validity`
 
@@ -234,7 +234,7 @@ transaction funding service.
 The externally signed version has the following
 signature `revokeAttributeSigned(address identity, uint8 sigV, bytes32 sigR, bytes32 sigS, bytes32 name, bytes value)`.
 
-The signature should be signed off the keccak256 hash of the following tightly packed parameters:
+The signature should be signed off the `keccak256` hash of the following tightly packed parameters:
 
 `byte(0x19), byte(0), address of registry, nonce[currentOwner], identity, "revokeAttribute", name, value`
 
@@ -305,7 +305,7 @@ The primary owner key should be looked up using `identityOwner(identity)`. This 
 listed.
 
 Iterate through the `DIDDelegateChanged` events to build a list of additional keys and authentication sections as
-needed. The list of delegateTypes to include is still to be determined.
+needed. The list of `delegateTypes` to include is still to be determined.
 
 Iterate through `DIDAttributeChanged` events for service entries, encrypted public keys, and other public names. The
 attribute names are still to be determined.
